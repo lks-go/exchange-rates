@@ -28,7 +28,7 @@ func Run(args *Args, api APICient) error {
 
 	result := (1 / r.Rates[args.From]) / (1 / r.Rates[args.To]) * args.Amount
 
-	fmt.Fprintf(os.Stdout, "%.2f", result)
+	fmt.Fprintf(os.Stdout, "%.2f\n", result)
 
 	return nil
 }
