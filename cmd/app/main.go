@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"os"
 
 	"github.com/lks-go/exchange-rates/pkg/exchangeratesapi"
 
@@ -22,7 +24,10 @@ func main() {
 
 	api := exchangeratesapi.New(&cfg.API)
 
-	if err := app.Run(args, api); err != nil {
+	res, err := app.Run(args, api)
+	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Fprint(os.Stdout, res)
 }
